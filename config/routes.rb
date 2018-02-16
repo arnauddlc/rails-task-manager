@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   get 'tasks/:id/edit', to: 'tasks#edit', as: :edit
   patch 'tasks/:id', to: 'tasks#update', as: :update
+  
+  patch 'tasks/:id/toggle', to: 'tasks#toggle_status', as: :togglestatus
 
 end
