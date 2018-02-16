@@ -1,0 +1,42 @@
+<div class="wrap">
+	<div class="container">
+		<h1>My task list</h1>
+		<h6><em>Stop procrastinating and start working on these to-dos!</em></h6>
+		<div class="container-tasks">
+				<% @tasks.each do |task| %>
+					<div class="task">
+						<div class="checkbox">
+							<% if task.completed %>
+								<h2><i class="fas fa-check-square"></i></h2>
+							<% else %>
+								<h2><i class="far fa-square"></i></h2>
+							<% end %>
+						</div>
+						<div class="task-display">
+							<h3><%= task.title %></h3>
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<%= link_to "More details", task_path(task) %>
+								</li>
+								<li class="list-inline-item">     </li>
+								<li class="list-inline-item">
+									<%= link_to delete_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+									<i class='far fa-trash-alt'></i>
+								<% end %> 
+								</li>	
+							</ul>
+						</div>
+					</div>
+				<% end %>
+				<div class="task" id="add-a-task">
+					<div class="checkbox">
+						<h2><i class="far fa-plus-square"></i></h2>
+					</div>
+					<div class="task-display">
+						<h3>Add a new task</h3>
+						<p><%= link_to "Click here", :new %></p>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>

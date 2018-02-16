@@ -1,0 +1,30 @@
+<div class="wrap">
+	<div class="container">
+		<h1>See details of my selected task</h1>
+		<h6><em>Stop procrastinating and start working on this if it's not already done!</em></h6>
+		<div class="container-tasks">
+				<div class="task">
+					<div class="checkbox">
+						<% if @task.completed %>
+							<h2><i class="fas fa-check-square"></i></h2>
+						<% else %>
+							<h2><i class="far fa-square"></i></h2>
+						<% end %>
+					</div>
+					<div class="task-display">
+						<h3><%= @task.title %></h3>
+						<p><%= @task.details %></p>
+						<p><em>This task has obviously <%= "not" unless @task.completed %> been completed</em></p>
+					</div>
+				</div>
+				<div class="edit-container">
+					<form action="/tasks/<%= @task.id %>/edit" method="GET">
+						<button type="submit" class="btn btn-default" id="edit-btn">Edit this task</button>
+					</form>
+				</div>
+		</div>
+	</div>
+	<div class="container">
+		<%= link_to "Return to my full list of tasks", :index %>
+	</div>
+</div>

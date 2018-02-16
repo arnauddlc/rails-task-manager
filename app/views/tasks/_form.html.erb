@@ -1,0 +1,21 @@
+
+<div>
+	<%= form_for(@task) do |f| %>
+	<div class="form-group">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: 'form-control', placeholder: 'Get a job' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :details %>
+		<%= f.text_area :details, class: 'form-control', placeholder: 'Go online for a good start' %>
+	</div>
+
+<!-- 	<div class="form-check">
+  	< f.label :completed %>
+		< f.check_box_tag :completed %>
+	</div> -->
+
+	<%= f.submit class: 'btn btn-primary' %>
+	<% end %>
+</div>
